@@ -8,7 +8,7 @@ export const setImgToFavorite = image => ({
   payload: image,
 });
 
-export const removeImgFromFavorite = () => ({
+export const removeImgFromFavorite = id => ({
   type: REMOVE_IMG_FROM_FAVORITE,
-  payload: '',
+  payload: id,
 });

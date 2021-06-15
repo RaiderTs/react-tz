@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Navigation.module.css';
+import Favorite from '../../components/Favorites'
 
 const Navigation = () => (
   <nav className={s.nav}>
@@ -8,21 +9,26 @@ const Navigation = () => (
       Home
     </NavLink>
 
-    <NavLink to="/birds" className={s.link} activeClassName={s.activeLink}>
+    <NavLink to="/birdPage" className={s.link} activeClassName={s.activeLink}>
       Birds
     </NavLink>
 
-    <NavLink to="/building" className={s.link} activeClassName={s.activeLink}>
+    <NavLink
+      to="/buildingPage"
+      className={s.link}
+      activeClassName={s.activeLink}
+    >
       Building
     </NavLink>
 
-    <NavLink to="/weather" className={s.link} activeClassName={s.activeLink}>
+    <NavLink to="/weatherPage" className={s.link} activeClassName={s.activeLink}>
       Weather
     </NavLink>
 
-    <NavLink to="/favorites" className={s.link} activeClassName={s.activeLink}>
+    <NavLink to="/favoritesPage" className={s.link} activeClassName={s.activeLink}>
       Favorites
     </NavLink>
+    <Favorite />
   </nav>
 );
 

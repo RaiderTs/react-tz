@@ -2,6 +2,7 @@
  * Стили компонента ImageGalleryItem
  */
 .item {
+  position: relative;
   border-radius: 2px;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
@@ -18,3 +19,16 @@
   transform: scale(1.05);
   cursor: zoom-in;
 }
+
+.favorite {
+    position: absolute;
+    top: 220px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    object-position: center center;
+    filter: drop-shadow(0px 0px 2px #000);
+    cursor: pointer;
+}
+

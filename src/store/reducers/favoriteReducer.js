@@ -1,3 +1,4 @@
+import { omit } from 'lodash';
 import {
   ADD_IMG_TO_FAVORITE,
   REMOVE_IMG_FROM_FAVORITE,
@@ -12,10 +13,7 @@ const favoriteReducer = (state = initialState, action) => {
         ...action.payload,
       };
     case REMOVE_IMG_FROM_FAVORITE:
-      return {
-        ...state,
-        ...action.payload,
-      };
+      return omit(state, [action.payload]);
 
     default:
       return state;

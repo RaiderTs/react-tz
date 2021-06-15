@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { lazy, useEffect, Suspense } from 'react';
-import {BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { addBackToTop } from 'vanilla-back-to-top';
 
 import Container from './components/Container';
@@ -24,6 +24,10 @@ const WeatherPage = lazy(() =>
   import('./views/WeatherPage' /* webpackChunkName: "weatherPage-view" */),
 );
 
+const FavoritesPage = lazy(() =>
+  import('./views/FavoritesPage' /* webpackChunkName: "weatherPage-view" */),
+);
+
 function App() {
   useEffect(() => {
     addBackToTop({
@@ -33,29 +37,32 @@ function App() {
 
   return (
     <BrowserRouter>
-    <Container>
-      <AppBar />
-      <Suspense fallback={<LoaderComponent />}>
-        <Switch>
-          <Route path="/" exact>
-            <HomePage />
-          </Route>
+      <Container>
+        <AppBar />
+        <Suspense fallback={<LoaderComponent />}>
+          <Switch>
+            <Route path="/" exact>
+              <HomePage />
+            </Route>
 
-          <Route path="/birdPage" exact>
-            <BirdPage />
-          </Route>
+            <Route path="/birdPage" exact>
+              <BirdPage />
+            </Route>
 
-          <Route path="/buildingPage" exact>
-            <BuildingPage />
-          </Route>
+            <Route path="/buildingPage" exact>
+              <BuildingPage />
+            </Route>
 
-          <Route path="/weatherPage" exact>
+            <Route path="/weatherPage" exact>
               <WeatherPage />
-              
-          </Route>
-        </Switch>
-      </Suspense>
-    </Container>
+            </Route>
+
+            <Route path="/favoritesPage" exact>
+              <FavoritesPage />
+            </Route>
+          </Switch>
+        </Suspense>
+      </Container>
     </BrowserRouter>
   );
 }
