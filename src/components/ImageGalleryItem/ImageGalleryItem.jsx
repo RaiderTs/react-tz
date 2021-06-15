@@ -37,12 +37,13 @@ function ImageGalleryItem({ id, src, alt, largeImageUrl }) {
       dispatch(removeImgFromFavorite(id));
       setImageFavorite(false);
     } else {
+      //
       dispatch(
         setImgToFavorite({
           [id]: {
-            src: src,
+            webformatURL: src,
             alt: alt,
-            largeImageUrl: largeImageUrl,
+            largeImageURL: largeImageUrl,
           },
         }),
       );
@@ -68,7 +69,7 @@ function ImageGalleryItem({ id, src, alt, largeImageUrl }) {
         src={imageFavorite ? iconFavoriteFill : iconFavorite}
         onClick={dispatchFavoriteImage}
         className={style.favorite}
-        alt="dd to favorites"
+        alt="add to favorites"
       />
 
       {/* <button onClick={dispatchFavoriteImage} className={style.favorite}>
