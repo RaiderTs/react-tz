@@ -2,8 +2,8 @@
     position: relative;
     top: 0;
     left: 0;
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     flex-shrink: 0;
     margin-left: auto;
 }
@@ -15,8 +15,8 @@
 }
 .counter {
     position: absolute;
-    top: 7px;
-    right: 2px;
+    top: 12px;
+    right: 5px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -22,7 +22,8 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--primaryTextColor);
-  background: rgba(170, 170, 170, 0.6);
+  /* background: rgba(170, 170, 170, 0.6); */
+  background-image: url(../src/img/5293781.jpg);
 }
 
 img {

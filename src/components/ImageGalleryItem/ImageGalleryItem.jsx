@@ -10,7 +10,10 @@ import PropTypes from 'prop-types';
 import Modal from '../Modal';
 import style from './ImageGalleryItem.module.css';
 
-import iconFavorite from './img/favorite.svg'
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
+import iconFavorite from './img/favorite.svg';
 import iconFavoriteFill from './img/favorite-fill.svg';
 
 function ImageGalleryItem({ id, src, alt, largeImageUrl }) {
@@ -18,11 +21,10 @@ function ImageGalleryItem({ id, src, alt, largeImageUrl }) {
   const [imageFavorite, setImageFavorite] = useState(false);
 
   const storeData = useSelector(state => state.favoriteReducer);
-  
+
   useEffect(() => {
     storeData[id] ? setImageFavorite(true) : setImageFavorite(false); //  Поместить в useEffect
-  })
-  
+  }, [storeData, id]);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -30,31 +32,30 @@ function ImageGalleryItem({ id, src, alt, largeImageUrl }) {
 
   const dispatch = useDispatch();
 
-  // const set = () => {};
-
-  // const remove = () => {};
-
-
   const dispatchFavoriteImage = () => {
     if (imageFavorite) {
       dispatch(removeImgFromFavorite(id));
       setImageFavorite(false);
     } else {
-        dispatch(
-          setImgToFavorite({
-            [id]: {
-              src: src,
-              alt: alt,
-            },
-          }),
-        );
-        setImageFavorite(true);
-     }
-   }
+      dispatch(
+        setImgToFavorite({
+          [id]: {
+            src: src,
+            alt: alt,
+            largeImageUrl: largeImageUrl,
+          },
+        }),
+      );
+      setImageFavorite(true);
+    }
+  };
 
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
 
   return (
-    <li className={style.item} id={id}>
+    <li data-aos="fade-up" className={style.item} id={id}>
       <img
         onClick={toggleModal}
         src={src}
@@ -62,7 +63,7 @@ function ImageGalleryItem({ id, src, alt, largeImageUrl }) {
         className={style.image}
         id={id}
       />
-            
+
       <img
         src={imageFavorite ? iconFavoriteFill : iconFavorite}
         onClick={dispatchFavoriteImage}

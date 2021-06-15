@@ -1,12 +1,13 @@
 {
-  "name": "goit-react-hw-04-hooks-images",
-  "homepage": "https://RaiderTs.github.io/goit-react-hw-04-hooks-images",
+  "name": "react-tz",
+  "homepage": "https://RaiderTs.github.io/react-tz",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
+    "aos": "^2.3.4",
     "axios": "^0.21.1",
     "gh-pages": "^3.1.0",
     "lodash": "^4.17.21",

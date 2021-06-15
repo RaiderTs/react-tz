@@ -9,16 +9,16 @@
   margin-right: 30px;
   font-weight: 500;
   font-size: 18px;
-  color: blue;
+  color: #ffffff;
   transition: color 250ms var(--timingFn);
 }
 
 .link:hover,
 .link:focus {
-  color: darkblue
+  color: #89F0FF;
 }
 
 .activeLink {
   /* composes: link; */
-  color: blue
+  color: #FDCE00;
 }

@@ -3,8 +3,10 @@ import {
   ADD_IMG_TO_FAVORITE,
   REMOVE_IMG_FROM_FAVORITE,
 } from '../constants/actionTypes';
+import { getLocalStorage } from '../../utils/localStorage';
 
-const initialState = {};
+const initialState = getLocalStorage('store');
+
 const favoriteReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_IMG_TO_FAVORITE:
